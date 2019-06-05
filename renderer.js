@@ -1,3 +1,20 @@
-// This file is required by the index.html file and will
-// be executed in the renderer process for that window.
-// All of the Node.js APIs are available in this process.
+
+let mainWindow = require('electron').remote.getCurrentWindow()
+let el = document.getElementById('sprite')
+
+el.addEventListener('mouseenter', () => {
+  mainWindow.setIgnoreMouseEvents(false)
+})
+
+el.addEventListener('mouseleave', () => {
+  mainWindow.setIgnoreMouseEvents(true, { forward: true })
+})
+
+el.addEventListener('mousemove', () => {
+  console.log('-- mouse move --')
+})
+
+el.addEventListener('click', () => {
+  console.log('-- mouse click --')
+})
+

@@ -1,19 +1,26 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
-  </head>
+  <style>
+    :root {
+      --border-custom: 2px solid #49CE8B;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      border: var(--border-custom);
+      border-radius: 6px;
+    }
+  </style>
+  <script>
+    window.onload = function() {
+      const root = document.documentElement;
+      root.style.setProperty('--border-custom', '2px solid #49CE8B');
+      // root.style.pointerEevents = 'none';
+    }
+  </script>
   <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-
-    <script>
-      // You can also require other files to run in this process
-      require('./renderer.js')
-    </script>
+    <div id='sprite' style='position:absolute; z-index: 1; top: 50px; left: 50px; width: 100px; height: 100px; background-color: red'>
   </body>
+  <script>
+    require('./renderer.js')
+  </script>
 </html>
